@@ -32,7 +32,7 @@ end
 
 function MOVEMENTMS:Update()
 	local Character = self.Player.Character
-	local Humanoid = Character:FindFirstChildOfClass("Humanoid") or nil
+	local Humanoid = if Character then Character:FindFirstChildOfClass("Humanoid") else nil
 
 	if not Humanoid then warn(`Could not update speed for {self.Player.DisplayName}`) return end
 
