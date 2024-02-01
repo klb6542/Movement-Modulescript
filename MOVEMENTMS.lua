@@ -1,4 +1,6 @@
-type MovementStruct = {
+--!strict
+
+export type MovementStruct = {
 	Player: Player,
 	PlayerUserId: number,
 	CurrentSpeed: number,
@@ -8,8 +10,10 @@ type MovementStruct = {
 local MOVEMENTMS = {Cache = {} :: MovementStruct} -- Cast Cache type to MovementStruct type
 MOVEMENTMS.__index = MOVEMENTMS
 
-function AddCache(self: MovementStruct)
-	MOVEMENTMS.Cache[self.Player.UserId] = self
+function SetCache(self)
+	setmetatable(self, MOVEMENTMS)
+	
+	MOVEMENTMS.Cache[self.PlayerUserId] = self
 end
 
 function MOVEMENTMS.new(Player: Player)
@@ -19,13 +23,15 @@ function MOVEMENTMS.new(Player: Player)
 		CurrentSpeed = 0,
 		CurrentJumpPower = 0
 	}
+	
+	setmetatable(self, MOVEMENTMS)
+	
+	SetCache(self)
+	return self
+end
 
-	AddCache(self)
-	return setmetatable(self, MOVEMENTMS)
-end 
-
-function MOVEMENTMS:GetCache(Player: Player?): {[Player]: MovementStruct} | MovementStruct | {}
-	return if self.Cache[Player] then self.Cache[Player.UserId] else self.Cache
+function MOVEMENTMS:GetCache(Player: Player): {[any]: any} | nil
+	return if MOVEMENTMS.Cache[Player.UserId] then MOVEMENTMS.Cache[Player.UserId] else nil
 end
 
 function MOVEMENTMS:Update()
@@ -36,16 +42,17 @@ function MOVEMENTMS:Update()
 
 	Humanoid.WalkSpeed = self.CurrentSpeed
 	Humanoid.JumpPower = self.CurrentJumpPower
+	SetCache(self)
 end
 
 function MOVEMENTMS:SetSpeed(NewSpeed: number)
 	self.CurrentSpeed = NewSpeed
-	AddCache(self)
+	SetCache(self)
 end
 
 function MOVEMENTMS:SetJumpPower(NewJumpPower: number)
 	self.CurrentJumpPower = NewJumpPower
-	AddCache(self)
+	SetCache(self)
 end
 
 function MOVEMENTMS:GetSpeed(): number
