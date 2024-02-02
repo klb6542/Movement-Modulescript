@@ -40,7 +40,7 @@ end)
 All the methods:
 
 ```lua
-newMovement = Movement.new(Player: Player) -- Returns self and it's methods
+newMovement = Movement.new(Player: Player) -- Constructor 
 
 newMovement:SetSpeed(Number: number) -- Sets self.CurrentSpeed to Number. IMPORTANT: This does NOT set the humanoid's walkspeed/jumppower!
 
