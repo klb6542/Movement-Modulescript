@@ -48,7 +48,7 @@ print(newModifier:GetAttributeValue()) -- 5
 ```
 
 ```bp``` is the instance the attribute is on, and ```myNumber``` is the name of the attribute.
-```5``` is the value you want to set on the creation of the constructor, and it can be left out.A
+```5``` is the value you want to set on the creation of the constructor, and it can be left out.
 
 If you have another script and you want to get the cache, use the method below on the Modulescript:
 ```
