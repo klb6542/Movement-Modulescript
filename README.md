@@ -17,7 +17,7 @@ game.Players.PlayerAdded:Connect(function(plr)
 end)
 ```
 
-If you have multiple scripts that will change the player's movement, you don't need to create multiple ```.new``` movements. Instead, it is recommended that you use the ```Cache``` system to get the already existing movement.
+If you have multiple scripts that will change the player's movement, you don't need to create multiple ```.new``` constructor movements. Instead, it is recommended that you use the ```Cache``` system to get the already existing movement.
 This helps avoid confusion and bugs by only using one movement per player. 
 
 ```lua
