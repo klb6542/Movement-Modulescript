@@ -13,7 +13,7 @@ local ModuleScript = require(ReplicatedStorage.ModuleScript)
 game.Players.PlayerAdded:Connect(function(plr)
 	local newMovement = ModuleScript.new(plr)
 	newMovement:SetSpeed(5)
-	newMovement:Update()
+	newMovement:Update() -- you should check if the player exists before updating, this is an example
 end)
 ```
 
