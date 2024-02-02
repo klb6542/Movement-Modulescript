@@ -48,7 +48,7 @@ newMovement:SetJumpPower(Number: number) -- Sets self.CurrentJumpPower to Number
 
 newMovement:GetSpeed(): number -- Returns self.CurrentSpeed
 
-newMovement:GetJumpPower: number -- Returns self.JumpPower
+newMovement:GetJumpPower(): number -- Returns self.JumpPower
 
 newMovement:Update() -- Updates the humanoid's walkspeed and jumppower to the self.CurrentSpeed and self.CurrentJumpPower
 
