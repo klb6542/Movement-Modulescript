@@ -36,3 +36,27 @@ game.Players.PlayerRemoving:Connect(function(plr)
 	print(cacheMovement) -- nil
 end)
 ```
+
+All the methods:
+
+```lua
+newMovement = Movement.new(Player: Player) -- Returns self and it's methods
+
+newMovement:SetSpeed(Number: number) -- Sets self.CurrentSpeed to Number. IMPORTANT: This does NOT set the humanoid's walkspeed/jumppower!
+
+newMovement:SetJumpPower(Number: number) -- Sets self.CurrentJumpPower to Number. IMPORTANT: This does NOT set the humanoid's walkspeed/jumppower!
+
+newMovement:GetSpeed(): number -- Returns self.CurrentSpeed
+
+newMovement:GetJumpPower: number -- Returns self.JumpPower
+
+newMovement:Update() -- Updates the humanoid's walkspeed and jumppower to the self.CurrentSpeed and self.CurrentJumpPower
+
+cacheMovement = Movement:GetCache(Player: Player) -- Returns self if exists, else returns nil
+
+newMovement:KillSelf() -- Kills self AND any self cache
+```
+
+Todo:
+
+Queues, other humanoid property methods
