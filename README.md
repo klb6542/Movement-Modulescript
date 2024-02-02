@@ -71,7 +71,7 @@ newMovement = Movement.new(Player: Player) -- Constructor
 
 newAttribute = ModuleScript.new(ModuleScript.GenerateFakePlayer(), AttributeInstance: Instance, AttributeName: string, AttributeValue: number)
 
-Movement.GenerateFakePlayer(MinLength: number?, MaxLength: number?): PlayerStruct -- Min and max length represent the min and max of random when generating a UserId for the player.
+Movement.GenerateFakePlayer(MinLength: number?, MaxLength: number?): PlayerStruct -- Min and max length represent the min and max of random when generating a UserId for the player. Recommend you leave nil.
 
 newMovement:SetSpeed(Number: number) -- Sets self.CurrentSpeed to Number. IMPORTANT: This does NOT set the humanoid's walkspeed/jumppower! Use :Update() instead.
 
