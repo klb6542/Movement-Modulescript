@@ -21,7 +21,7 @@ If you have multiple scripts that will change the player's movement, you don't n
 This helps avoid confusion and bugs by only using one movement per player. 
 
 ```lua
-local cacheMovement = ModuleScript:GetCache(plr) -- returns original movement or nil
+local cacheMovement = ModuleScript:GetCache(plr) -- returns original movement or nil; recommended you check for nil after calling it
 cacheMovement:SetSpeed(16)
 cacheMovement:Update()
 ```
