@@ -33,7 +33,7 @@ function GenerateID(MinLength: number?, MaxLength: number?): number
 end
 
 function MOVEMENTMS.new(Player: Player | PlayerStruct, AttributeInstance: Instance?, AttributeName: string?, AttributeValue: any?)
-	if MOVEMENTMS.Cache[Player.UserId] then error(`Another constructor with the same UserId already exists - {script:GetFullName()}`) return end
+	if MOVEMENTMS.Cache[Player.UserId] then error(`Another constructor with the same UserId already exists`) return end
 	
 	local self: MovementStruct = {
 		Player = Player,
@@ -62,7 +62,7 @@ end
 
 function MOVEMENTMS:GetCache(Player: Player | nil, AttributeInstance: Instance?, AttributeName: string?): {[any]: any} | nil
 	local AttributeAttendence = AttributeInstance and AttributeName
-	if not Player and not AttributeAttendence then error(`All arguments are nil - {script:GetFullName()}`) return end
+	if not Player and not AttributeAttendence then error(`All arguments are nil`) return end
 	
 	if AttributeAttendence then
 		local Cache: {[any]: any} = nil
