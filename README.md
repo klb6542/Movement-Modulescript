@@ -53,7 +53,7 @@ print(newModifier:GetAttributeValue()) -- 5
 ```5``` is the value you want to set on the creation of the constructor, and it can be left out.
 
 If you have another script and you want to get the cache, use the method below on the Modulescript:
-```
+```lua
 local newModifier = ModuleScript:GetCache(nil, bp, "myNumber")
 
 task.wait(15)
