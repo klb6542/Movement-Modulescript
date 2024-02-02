@@ -67,6 +67,8 @@ function MOVEMENTMS:KillSelf() -- Garbage collector
 	MOVEMENTMS.Cache[self.Player.UserId] = nil
 	setmetatable(self, nil)
 	table.clear(self :: any)
+
+	self = nil
 end
 
 return MOVEMENTMS
