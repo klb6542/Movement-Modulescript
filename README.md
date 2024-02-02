@@ -18,13 +18,21 @@ end)
 ```
 
 If you have multiple scripts that will change the player's movement, you don't need to create multiple ```.new``` movements. Instead, it is recommended that you use the ```Cache``` system to get the already existing movement.
-This helps avoid confusion and bugs by only using one movement per player. As seen above, you should create a new movement when the player joins.
+This helps avoid confusion and bugs by only using one movement per player. 
+
+```lua
+local cacheMovement = ModuleScript:GetCache(plr) -- returns original movement or nil
+cacheMovement:SetSpeed(16)
+cacheMovement:Update()
+```
+
+As seen above, you should create a new movement when the player joins.
 You can manually destroy or kill the movement with ```self:KillSelf```.
 
 ```lua
 game.Players.PlayerRemoving:Connect(function(plr)
-	local cacheMovement = ModuleScript.Cache(plr) -- Can return original movement or nil if none exist
+	local cacheMovement = ModuleScript.Cache(plr)
 	cacheMovement:KillSelf()
-	print(cacheMovement) -- errors because cacheMovement is nil
+	print(cacheMovement) -- nil
 end)
 ```
